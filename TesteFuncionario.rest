@@ -9,6 +9,7 @@ POST http://127.0.0.1:8000/funcionario/ HTTP/1.1
 content-type: application/json
 
 {
+    "id_cliente" : 1,
     "nome" : "Abc da Silva",
     "cpf" : "01923874656",
     "telefone" : "49988234567",
@@ -22,6 +23,7 @@ PUT http://127.0.0.1:8000/funcionario/2 HTTP/1.1
 content-type: application/json
 
 {
+    "id_cliente" : 2,
     "nome" : "Bolinhas dos Testes",
     "cpf" : "12345678909",
     "telefone" : "49898989",
