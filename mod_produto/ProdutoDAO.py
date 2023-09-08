@@ -1,3 +1,7 @@
+# import da persistência
+import db
+from mod_produto.ProdutoModel import ProdutoDB
+
 from fastapi import APIRouter
 from mod_produto.Produto import Produto
 

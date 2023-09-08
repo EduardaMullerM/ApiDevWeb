@@ -1,3 +1,7 @@
+# import da persistência
+import db
+from mod_cliente.ClienteModel import ClienteDB
+
 from fastapi import APIRouter
 from mod_cliente.Cliente import Cliente
 
