@@ -3,7 +3,8 @@ from sqlalchemy import Column, VARCHAR, CHAR, Integer
 # ORM
 
 class ClienteDB(db.Base):
-    _tablename_ = 'tb_cliente'
+    __tablename__ = 'tb_cliente'
+    
     id_cliente = Column(Integer, primary_key=True, autoincrement=True, index=True)
     nome = Column(VARCHAR(100), nullable=False)
     cpf = Column(CHAR(11), unique=True, nullable=False)

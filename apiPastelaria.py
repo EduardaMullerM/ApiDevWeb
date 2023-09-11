@@ -13,9 +13,11 @@ app.include_router(FuncionarioDAO.router)
 app.include_router(ClienteDAO.router)
 app.include_router(ProdutoDAO.router)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run('apiPastelaria:app', host=HOST, port=int(PORT), reload=RELOAD)
+# rota padrão
+@app.get("/")
+def root():
+    return {"detail":"API Pastelaria", "Swagger UI": "http://127.0.0.1:8000/docs", "ReDoc": "http://127.0.0.1:8000/redoc" }
+
 
 # cria, caso não existam, as tabelas de todos os modelos importados
 import db
@@ -25,8 +27,4 @@ if __name__ == "__main__":
         import uvicorn
         uvicorn.run('apiPastelaria:app', host=HOST, port=int(PORT), reload=RELOAD)
 
-# rota padrão
-@app.get("/")
-def root():
-    return {"detail":"API Pastelaria", "Swagger UI": "http://127.0.0.1:8000/docs", "ReDoc": "http://127.0.0.1:8000/redoc" }
 
