@@ -5,7 +5,12 @@ from mod_produto.ProdutoModel import ProdutoDB
 from fastapi import APIRouter
 from mod_produto.Produto import Produto
 
-router = APIRouter()
+# import da segurança
+from fastapi import Depends
+import security
+
+# dependências de forma global
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
 
 @router.get("/produto/", tags=["Produto"])
 def get_produto():
