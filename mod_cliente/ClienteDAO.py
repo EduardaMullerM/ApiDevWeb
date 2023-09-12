@@ -7,6 +7,19 @@ from mod_cliente.Cliente import Cliente
 
 router = APIRouter()
 
+@router.get("/cliente/", tags=["Cliente"])
+def get_cliente():
+    try:
+        session = db.Session()
+# busca todos
+        dados = session.query(ClienteDB).all()
+        return dados, 200
+    
+    except Exception as e:
+        return {"erro": str(e)}, 400
+    finally:
+        session.close()
+
 @router.get("/cliente/{id}", tags=["Cliente"])
 def get_cliente(id: int):
     try:
@@ -25,7 +38,7 @@ def get_cliente(id: int):
 def post_cliente(corpo: Cliente):
     try:
         session = db.Session()
-        dados = ClienteDB(None, corpo.nome, corpo.matricula, corpo.cpf, corpo.telefone, corpo.grupo, corpo.senha)
+        dados = ClienteDB(None, corpo.nome, corpo.cpf, corpo.compra_fiado, corpo.dia_fiado, corpo.senha)
 
         session.add(dados)
 

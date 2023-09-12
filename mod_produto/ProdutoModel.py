@@ -10,7 +10,7 @@ class ProdutoDB(db.Base):
     foto = Column(CHAR(11), nullable=False)
     valor_unitario = Column(DECIMAL, nullable=False)
 
-    def _init_(self, id_produto, nome, descricao, foto, valor_unitario):
+    def __init__(self, id_produto, nome, descricao, foto, valor_unitario):
         super().__init__()
         self.id_produto = id_produto
         self.nome = nome

@@ -2,7 +2,7 @@
 GET http://localhost:8000/produto/ HTTP/1.1
 
 ### Verbo GET – listar um
-GET http://localhost:8000/produto/10 HTTP/1.1
+GET http://localhost:8000/produto/1 HTTP/1.1
 
 ### Verbo POST – adicionar
 POST http://127.0.0.1:8000/produto/ HTTP/1.1
@@ -11,18 +11,20 @@ content-type: application/json
 {
     "id_produto": 1,
     "nome": "Refrigerante",
-    "descricao": "Cola-Cola",
-    "foto": ""
+    "descricao": "Cola-Cola Zero",
+    "foto": "",
+    "valor_unitario": "10"
 }
 ### Verbo PUT – atualiza
-PUT http://127.0.0.1:8000/produto/2 HTTP/1.1
+PUT http://127.0.0.1:8000/produto/1 HTTP/1.1
 content-type: application/json
 
 {
     "id_produto": 2,
     "nome": "Água",
     "descricao": "Água com Gás",
-    "foto": ""
+    "foto": "",
+    "valor_unitario": "10"
 }
 
 

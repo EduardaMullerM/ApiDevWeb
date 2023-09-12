@@ -39,7 +39,7 @@ def get_produto(id: int):
 def post_produto(corpo: Produto):
     try:
         session = db.Session()
-        dados = ProdutoDB(None, corpo.nome, corpo.matricula, corpo.cpf, corpo.telefone, corpo.grupo, corpo.senha)
+        dados = ProdutoDB(None, corpo.nome, corpo.descricao, corpo.foto, corpo.valor_unitario)
 
         session.add(dados)
 
@@ -62,7 +62,6 @@ def put_produto(id: int, corpo: Produto):
             ProdutoDB.id_produto == id).one()
         
         dados.nome = corpo.nome
-        dados.cpf = corpo.cpf
         dados.descricao = corpo.descricao
         dados.foto = corpo.foto
         dados.valor_unitario = corpo.valor_unitario

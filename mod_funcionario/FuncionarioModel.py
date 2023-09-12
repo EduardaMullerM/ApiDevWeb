@@ -13,7 +13,7 @@ class FuncionarioDB(db.Base):
     grupo = Column(Integer, nullable=False)
     senha = Column(VARCHAR(200), nullable=False)
     
-    def _init_(self, id_funcionario, nome, matricula, cpf, telefone, grupo, senha):
+    def __init__(self, id_funcionario, nome, matricula, cpf, telefone, grupo, senha):
         self.id_funcionario = id_funcionario
         self.nome = nome
         self.matricula = matricula
