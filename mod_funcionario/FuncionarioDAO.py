@@ -5,7 +5,12 @@ from mod_funcionario.FuncionarioModel import FuncionarioDB
 from fastapi import APIRouter
 from mod_funcionario.Funcionario import Funcionario
 
-router = APIRouter()
+# import da segurança
+from fastapi import Depends
+import security
+
+# dependências de forma global
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
 
 @router.get("/funcionario/", tags=["Funcionário"])
 def get_funcionario():
