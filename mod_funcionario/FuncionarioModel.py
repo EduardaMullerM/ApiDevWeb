@@ -4,7 +4,7 @@ from sqlalchemy import Column, VARCHAR, CHAR, Integer
 
 class FuncionarioDB(db.Base):
     __tablename__ = 'tb_funcionario'
-
+    
     id_funcionario = Column(Integer, primary_key=True, autoincrement=True, index=True)
     nome = Column(VARCHAR(100), nullable=False)
     matricula = Column(CHAR(10), nullable=False)
@@ -12,7 +12,7 @@ class FuncionarioDB(db.Base):
     telefone = Column(CHAR(11), nullable=False)
     grupo = Column(Integer, nullable=False)
     senha = Column(VARCHAR(200), nullable=False)
-    
+
     def __init__(self, id_funcionario, nome, matricula, cpf, telefone, grupo, senha):
         self.id_funcionario = id_funcionario
         self.nome = nome
@@ -20,4 +20,4 @@ class FuncionarioDB(db.Base):
         self.cpf = cpf
         self.telefone = telefone
         self.grupo = grupo
-        self.senha = senha
+        self.senha = senha  
