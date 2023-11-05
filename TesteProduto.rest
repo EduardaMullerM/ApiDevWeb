@@ -1,76 +1,30 @@
 ### Verbo GET – listar todos
 GET http://localhost:8000/produto/ HTTP/1.1
-x-token: abcBolinhasToken
-x-key: abcBolinhasKey
-### Verbo GET – listar todos
-curl -X 'GET' \
-    'http://localhost:8000/cliente/' \
-    -H 'accept: application/json' \
-    -H 'x-token: abcBolinhasToken' \
-    -H 'x-key: abcBolinhasKey'
 
 ### Verbo GET – listar um
-GET http://localhost:8000/produto/1 HTTP/1.1
-x-token: abcBolinhasToken
-x-key: abcBolinhasKey
-### Verbo GET – listar todos
-curl -X 'GET' \
-    'http://localhost:8000/cliente/' \
-    -H 'accept: application/json' \
-    -H 'x-token: abcBolinhasToken' \
-    -H 'x-key: abcBolinhasKey'
-
+GET http://localhost:8000/produto/10 HTTP/1.1
 
 ### Verbo POST – adicionar
 POST http://127.0.0.1:8000/produto/ HTTP/1.1
-x-token: abcBolinhasToken
-x-key: abcBolinhasKey
 content-type: application/json
 
 {
-    "id_produto": 1,
-    "nome": "Refrigerante",
-    "descricao": "Cola-Cola Zero",
-    "foto": "",
-    "valor_unitario": "10"
+    "nome": "Guaraná",
+    "descricao": "Refrigerante Guaraná",
+    "foto": "Foto do produto",
+    "valor_unitario": 5.20
 }
-
-### Verbo POST – listar todos
-curl -X 'POST' \
-    'http://localhost:8000/cliente/' \
-    -H 'accept: application/json' \
-    -H 'x-token: abcBolinhasToken' \
-    -H 'x-key: abcBolinhasKey'
-
+    
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/produto/1 HTTP/1.1
 content-type: application/json
-x-token: abcBolinhasToken
-content-type: application/json
 
 {
-    "id_produto": 2,
-    "nome": "Água",
-    "descricao": "Água com Gás",
-    "foto": "",
-    "valor_unitario": "10"
+    "nome": "Coca-Cola",
+    "descricao": "Refrigerante",
+    "foto": "Foto do produto",
+    "valor_unitario": 5.20
 }
-
-### Verbo PUT – listar todos
-curl -X 'PUT' \
-    'http://localhost:8000/cliente/' \
-    -H 'accept: application/json' \
-    -H 'x-token: abcBolinhasToken' \
-    -H 'x-key: abcBolinhasKey'
-
 
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/produto/3 HTTP/1.1
-x-token: abcBolinhasToken
-x-key: abcBolinhasKey
-### Verbo DELETE – listar todos
-curl -X 'DELETE' \
-    'http://localhost:8000/cliente/' \
-    -H 'accept: application/json' \
-    -H 'x-token: abcBolinhasToken' \
-    -H 'x-key: abcBolinhasKey'

@@ -1,5 +1,6 @@
 import db
 from sqlalchemy import Column, VARCHAR, CHAR, Integer, DECIMAL
+# ORM
 
 class ProdutoDB(db.Base):
     __tablename__ = 'tb_produto'
@@ -8,10 +9,9 @@ class ProdutoDB(db.Base):
     nome = Column(VARCHAR(100), nullable=False)
     descricao = Column(CHAR(11), unique=True, nullable=False)
     foto = Column(CHAR(11), nullable=False)
-    valor_unitario = Column(DECIMAL, nullable=False)
+    valor_unitario = Column(DECIMAL(), nullable=False)
 
     def __init__(self, id_produto, nome, descricao, foto, valor_unitario):
-        super().__init__()
         self.id_produto = id_produto
         self.nome = nome
         self.descricao = descricao
