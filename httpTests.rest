@@ -1,14 +1,33 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from settings import STR_DATABASE
+### Verbo GET – listar todos
+GET http://localhost:8000/funcionario/ HTTP/1.1
 
-engine = create_engine(STR_DATABASE)
-Session = sessionmaker(bind=engine)
+### Verbo GET – listar um
+GET http://localhost:8000/funcionario/10 HTTP/1.1
 
-# para trabalhar com tabelas
-Base = declarative_base()
+### Verbo POST – adicionar
+POST http://127.0.0.1:8000/funcionario/ HTTP/1.1
+content-type: application/json
 
-# cria, caso não existam, as tabelas de todos os modelos que encontrar na aplicação (importados)
-def criaTabelas():
-    Base.metadata.create_all(engine)
+{
+    "nome" : "teste",
+    "matricula" : "12345",
+    "cpf" : "01923874658",
+    "telefone" : "49988234567",
+    "grupo" : 1,
+    "senha" : "bolinhas"
+}
+### Verbo PUT – atualiza
+PUT http://127.0.0.1:8000/funcionario/2 HTTP/1.1
+content-type: application/json
+
+{
+    "nome" : "Bolinhas dos Testes",
+    "cpf" : "12345678909",
+    "telefone" : "49898989",
+    "senha" : "abc",
+    "matricula" : "54321",
+    "grupo" : 2
+}
+
+### Verbo DELETE - excluir
+DELETE http://127.0.0.1:8000/funcionario/3 HTTP/1.1

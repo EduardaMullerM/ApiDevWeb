@@ -2,8 +2,10 @@ from fastapi import APIRouter
 from mod_cliente.Cliente import Cliente
 import db
 from mod_cliente.ClienteModel import ClienteDB
+from fastapi import Depends
+import security
 
-router = APIRouter()
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
 
 # Criar as rotas/endpoints: GET, POST, PUT, DELETE
 
@@ -56,17 +58,18 @@ def post_cliente(corpo: Cliente):
 #PUT
 @router.put("/cliente/{id}", tags=["Cliente"])
 def put_cliente(id: int, corpo: Cliente):
+    print(corpo)
     try:
         session = db.Session()
         dados = session.query(ClienteDB).filter(
         ClienteDB.id_cliente == id).one()
         dados.nome = corpo.nome
-        dados.cpf = corpo.cpf
+        if not corpo.cpf == dados.cpf:
+            dados.cpf = corpo.cpf
         dados.telefone = corpo.telefone
         dados.compra_fiado = corpo.compra_fiado
         dados.dia_fiado = corpo.dia_fiado
         dados.senha = corpo.senha
-        session.add(dados)
         session.commit()
         return {"id": dados.id_cliente}, 200
     except Exception as e:
